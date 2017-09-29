@@ -24,3 +24,5 @@ before_install:
     - export PATH=$PATH:$(pwd)/indelible-ngsphy/bin
     - export PERL_MM_USE_DEFAULT=1
     - cpanm install Math::GSL
+install:
+    - echo "That's all folks"
