@@ -18,6 +18,8 @@ before_install:
     - pushd INDELibleV1.03/src && rm MersenneTwister.h &&  wget https://raw.githubusercontent.com/merlyescalona/indelible-ngsphy/master/src/MersenneTwister.h && g++ -o indelible -O4 indelible.cpp  && popd
     - pushd art_src_MountRainier_MacOS/ && ./configure && make && popd
     - pushd indelible-ngsphy && make && popd
+    - pushd ngsphy && python setup.py install && popd
+    - export PATH=$PATH:$(pwd)/ngsphy/scripts
     - export PATH=$PATH:$(pwd)/simphy/bin
     - export PATH=$PATH:$(pwd)/INDELibleV1.03/src
     - export PATH=$PATH:$(pwd)/art_src_MountRainier_MacOS/
@@ -26,3 +28,5 @@ before_install:
     - cpanm install Math::GSL
 install:
     - echo "That's all folks"
+scripts:
+    - bash ngsphy/test/ngsphy.test.4.sh $(pwd)/ngsphy
